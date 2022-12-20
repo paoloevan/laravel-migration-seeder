@@ -21,17 +21,20 @@
 
     <main>
         <div class="container">
-            @forelse ($trains as $train)
-            <ul>
-                <li>Codice treno: {{$train->train_code}}</li>
-                <li>{{$train->company}}</li>
-                <li>In partenza da {{$train->departure_station}} alle ore {{$train->departure_time}}</li>
-                <li>Arriva a {{$train->destination_station}} alle ore {{$train->destination_time}}</li>
-
+            <div class="row row-cols-3 gy-5">
+                @forelse ($trains as $train)
+                <div class="col">
+                    <ul>
+                        <li>Codice treno: {{$train->train_code}}</li>
+                        <li>{{$train->company}}</li>
+                        <li>In partenza da {{$train->departure_station}} alle ore {{$train->departure_time}}</li>
+                        <li>Arriva a {{$train->destination_station}} alle ore {{$train->destination_time}}</li>
+                    </ul>
+                </div>
                 @empty
                 <h3>Trains not found</h3>
-            </ul>
-            @endforelse
+                @endforelse
+            </div>
         </div>
     </main>
 
